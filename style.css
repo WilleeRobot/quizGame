@@ -25,6 +25,13 @@ p {
   padding: 100px;
 }
 
+.footer {
+  font-size: 1rem;
+  margin-top: 50px;
+  margin-bottom: 8px;
+  padding: none;
+}
+
 .startpage-container {
   max-width: 400px;
   padding: 20px;
@@ -39,9 +46,10 @@ p {
   margin-bottom: 7px;
 }
 
-.startpage-container > p {
+.description {
   line-height: 1.5;
-  text-align: center;
+  font-size: 18px;
+  text-align: left;
   margin-bottom: 32px;
 }
 
