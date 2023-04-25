@@ -105,6 +105,10 @@ p {
   font-weight: 500;
 }
 
+.label:hover {
+  cursor: pointer;
+}
+
 .answered {
   opacity: 50%;
 }
