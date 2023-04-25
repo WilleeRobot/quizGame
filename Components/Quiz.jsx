@@ -6,6 +6,7 @@ import parseHTML from "../utils/parseHTML";
 
 const Quiz = ({ handleExitClick }) => {
   // STATES
+  const [isLoading, setIsLoading] = useState(true);
   const [questions, setQuestions] = useState([]);
   const [isQuizOver, setIsQuizOver] = useState(false);
   const [newGame, setNewGame] = useState(false);
@@ -31,6 +32,7 @@ const Quiz = ({ handleExitClick }) => {
         };
       });
       setQuestions(questionBank);
+      setIsLoading(false);
     };
 
     getData().catch(console.error);
@@ -57,6 +59,7 @@ const Quiz = ({ handleExitClick }) => {
       setIsQuizOver(true);
     }
     if (isQuizOver == true) {
+      setIsLoading(true);
       setQuestions([]);
       setIsQuizOver(false);
       setNewGame(true);
@@ -101,9 +104,13 @@ const Quiz = ({ handleExitClick }) => {
             answers
           </p>
         )}
-        <button onClick={onMainButtonClick} className="buttonStyle">
-          {isQuizOver ? "Play again" : "Check answers"}
-        </button>
+        {isLoading ? (
+          <p>Hang tight... getting the questions.</p>
+        ) : (
+          <button onClick={onMainButtonClick} className="buttonStyle">
+            {isQuizOver ? "Play again" : "Check answers"}
+          </button>
+        )}
         <button onClick={onExitButtonClick} className="buttonStyle">
           Exit quiz
         </button>
